@@ -1,0 +1,37 @@
+public class Palindrome_recursive {
+
+ public static void main(String[] args) {
+ String[] strings = {"ici", "rumeur", "Leila",
+ "lol", "salut", "non"};
+ 
+ for(String string: strings){
+ if(estPalindrome(string))
+ System.out.println("'"+string + "' est un palindrome");
+ else
+ System.out.println("'"+string + "' n'est pas un palindrome");
+ }
+ }
+ 
+ public static boolean estPalindrome(String s)
+ {
+ //si la longueur est égale à 0 ou à 1
+ //donc c'est un palindrome
+ if(s.length() == 0 || s.length() == 1)
+ return true; 
+ if(s.charAt(0) == s.charAt(s.length()-1))
+ /*
+ * tester si le premier et le dernier caractère
+ * sont les memes alors répéter le meme traitment
+ * avec la sous-chaine avec le premier et le 
+ * dernier caractère jusqu'à atteindre la 
+ * première condition
+ */
+ return estPalindrome(s.substring(1, s.length()-1));
+
+ /*
+ * si la condition if est fausse, donc elle retourne
+ * false
+ */
+ return false;
+ }
+}
